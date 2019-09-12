@@ -1,0 +1,120 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (1).png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_3.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Stone.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Mushroom_2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Mushroom_1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Crate.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (4).png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (3).png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (2).png" type="Texture" id=13]
+
+[node name="Node" type="Node"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 0, 512 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 372, 512 )
+texture = ExtResource( 3 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 256, 384 )
+texture = ExtResource( 4 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( 0, 384 )
+texture = ExtResource( 5 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 512, 256 )
+texture = ExtResource( 6 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite7" type="Sprite" parent="."]
+position = Vector2( 256, 256 )
+texture = ExtResource( 7 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite8" type="Sprite" parent="."]
+position = Vector2( 0, 256 )
+texture = ExtResource( 8 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite9" type="Sprite" parent="."]
+position = Vector2( 512, 128 )
+texture = ExtResource( 9 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite10" type="Sprite" parent="."]
+position = Vector2( 256, 128 )
+texture = ExtResource( 10 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite11" type="Sprite" parent="."]
+position = Vector2( 0, 128 )
+texture = ExtResource( 11 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite12" type="Sprite" parent="."]
+position = Vector2( 512, 0 )
+texture = ExtResource( 12 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite13" type="Sprite" parent="."]
+position = Vector2( 256, 0 )
+texture = ExtResource( 13 )
+centered = false
+__meta__ = {
+"_edit_group_": true
+}
