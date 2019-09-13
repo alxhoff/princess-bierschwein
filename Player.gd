@@ -5,15 +5,17 @@ extends KinematicBody2D
 # var b = "text"
 
 const UP = Vector2(0,-1)
-const GRAVITY = 15
-const MAX_SPEED = 200
+const GRAVITY = 30
+const MAX_SPEED = 300
 const ACCELERATION = 20
 const GROUND_FRICTION = 0.25
 const AIR_FRICTION = 0.05
-const JUMP_HEIGHT = -750
+const JUMP_HEIGHT = -900
 
 var motion = Vector2()
 var jumping = false
+var beers_total = 0
+var beers_collected = 0
 
 func _physics_process(delta):
 	var friction = false
