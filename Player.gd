@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
 const UP = Vector2(0,-1)
 const GRAVITY = 30
 const MAX_SPEED = 300
@@ -11,15 +7,14 @@ const ACCELERATION = 20
 const GROUND_FRICTION = 0.25
 const AIR_FRICTION = 0.05
 const JUMP_HEIGHT = -900
+const MIN_JUMP = -450
 
 var motion = Vector2()
 var jumping = false
-var beers_total = 0
-var beers_collected = 0
 
 func _physics_process(delta):
+	print(get_parent().beers_total)
 	var friction = false
-
 	motion.y += GRAVITY
 	
 	if Input.is_action_pressed("ui_right"):
@@ -45,6 +40,7 @@ func _physics_process(delta):
 
 			
 		if Input.is_action_pressed("ui_up"):
+			$jump.play(0)
 			jumping = true
 			motion.y = JUMP_HEIGHT
 		if friction == true:
