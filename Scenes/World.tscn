@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scipts/World.gd" type="Script" id=1]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/World.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (1).png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (3).png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (4).png" type="Texture" id=5]
@@ -26,6 +26,7 @@ __meta__ = {
 position = Vector2( 0, -67 )
 
 [node name="Background items" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Sprite" type="Sprite" parent="Background items"]
 position = Vector2( -110, -31.9 )
@@ -105,9 +106,8 @@ texture = ExtResource( 4 )
 position = Vector2( 2390, -215 )
 texture = ExtResource( 11 )
 
-[node name="Beers" type="Node" parent="."]
-
 [node name="Collectables" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="CollectableBeer" parent="Collectables" instance=ExtResource( 13 )]
 position = Vector2( 1260, -330 )
@@ -162,6 +162,8 @@ tile_set = ExtResource( 15 )
 cell_size = Vector2( 128, 128 )
 format = 1
 tile_data = PoolIntArray( -786376, 11, 0, -786375, 10, 0, -786374, 10, 0, -786373, 10, 0, -786372, 9, 0, -720836, 12, 0, -655300, 12, 0, -589767, 13, 0, -589764, 12, 0, -524228, 12, 0, -458707, 16, 0, -458706, 14, 0, -458695, 13, 0, -458692, 12, 0, -393156, 12, 0, -327640, 11, 0, -327639, 10, 0, -327638, 9, 0, -327620, 2, 0, -327619, 1, 0, -327618, 9, 0, -262104, 8, 0, -262103, 13, 0, -262102, 12, 0, -262083, 13, 0, -262082, 2, 0, -262081, 1, 0, -262080, 9, 0, -196547, 13, 0, -196546, 13, 0, -196545, 13, 0, -196544, 12, 0, -131011, 13, 0, -131010, 13, 0, -131009, 2, 0, -131008, 1, 0, -131007, 9, 0, -65475, 13, 0, -65474, 13, 0, -65473, 13, 0, -65472, 13, 0, -65471, 12, 0, 61, 13, 0, 62, 13, 0, 63, 13, 0, 64, 2, 0, 65, 1, 0, 66, 10, 0, 67, 10, 0, 68, 10, 0, 69, 10, 0, 70, 10, 0, 65596, 13, 0, 65597, 13, 0, 65598, 13, 0, 65599, 13, 0, 65600, 13, 0, 65601, 13, 0, 65602, 13, 0, 65603, 13, 0, 65604, 13, 0, 65605, 13, 0, 65606, 13, 0 )
+
+[node name="UI" type="Node" parent="."]
 [connection signal="body_entered" from="Collectables/CollectableBeer" to="Collectables/CollectableBeer" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer4" to="Collectables/CollectableBeer4" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer5" to="Collectables/CollectableBeer5" method="_on_CollectableBeer_body_entered"]

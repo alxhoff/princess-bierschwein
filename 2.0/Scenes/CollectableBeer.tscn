@@ -1,0 +1,129 @@
+[gd_scene load_steps=24 format=2]
+
+[ext_resource path="res://Scripts/CollectableBeer.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-1.png.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-2.png.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-3.png.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-4.png.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-5.png.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-6.png.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-7.png.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-8.png.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-9.png.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-10.png.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-11.png.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-12.png.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-13.png.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-14.png.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Objects/animated_beer/beer-15.png.png" type="Texture" id=16]
+[ext_resource path="res://Sounds/collect_beer.wav" type="AudioStream" id=17]
+[ext_resource path="res://Sprites/particles/globe.png" type="Texture" id=18]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "default",
+"speed": 12.0
+} ]
+
+[sub_resource type="Animation" id=2]
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 2, -7 ), Vector2( -2, 7 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "taken"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("jump")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 17 )
+} ],
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 39, 48 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+trail_divisor = 10
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+gravity = Vector3( 0, 98, 0 )
+initial_velocity = 20.0
+initial_velocity_random = 1.0
+angular_velocity = 0.376471
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[node name="CollectableBeer" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( -0.00744319, 0.0260506 )
+rotation = -0.206914
+frames = SubResource( 1 )
+frame = 8
+playing = true
+centered = false
+
+[node name="anim" type="AnimationPlayer" parent="."]
+anims/anim = SubResource( 2 )
+anims/taken = SubResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 57, 35 )
+rotation = -0.206914
+shape = SubResource( 4 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="."]
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 30, 85 )
+scale = Vector2( 0.05, 0.05 )
+emitting = false
+amount = 30
+lifetime = 2.0
+speed_scale = 5.0
+explosiveness = 1.0
+process_material = SubResource( 5 )
+texture = ExtResource( 18 )
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 17 )
+[connection signal="area_shape_entered" from="." to="." method="_on_CollectableBeer_area_shape_entered"]

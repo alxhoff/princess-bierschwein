@@ -19,6 +19,10 @@ config/name="Gaeu Venturs"
 run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+top_ui="*res://UI/top_ui.gd"
+
 [display]
 
 window/size/width=1280
