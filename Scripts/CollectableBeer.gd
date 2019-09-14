@@ -9,7 +9,7 @@ func _on_CollectableBeer_body_entered( body ):
 		print("taken")
 		$anim.play("taken")
 		taken = true
-		get_parent().get_parent().beers_total += value
+		global_var.beer_count += value
 
 func _on_coin_area_enter(area):
 	pass # replace with function body

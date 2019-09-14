@@ -19,6 +19,10 @@ config/name="Gaeu Adventures"
 run/main_scene="res://Scenes/Levels/Level1.tscn"
 config/icon="res://Sprites/Objects/beer.png"
 
+[autoload]
+
+global_var="*res://Scripts/global_var.gd"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
