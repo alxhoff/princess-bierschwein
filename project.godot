@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Gaeu Venturs"
-run/main_scene="res://Scipts/Player.tscn"
+run/main_scene="res://Scenes/World.tscn"
 config/icon="res://icon.png"
 
 [display]
