@@ -160,10 +160,10 @@ animations = [ {
 "speed": 24.0
 } ]
 
-[node name="AnimatedPlayerSprite" type="AnimatedSprite"]
+[node name="Sprite" type="AnimatedSprite"]
 scale = Vector2( 0.3, 0.3 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 11
+frame = 1
 playing = true

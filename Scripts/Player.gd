@@ -13,17 +13,17 @@ var motion = Vector2()
 var jumping = false
 
 func _physics_process(delta):
-	print(get_parent().beers_total)
+
 	var friction = false
 	motion.y += GRAVITY
-	
+
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
-	
+
 
 	if is_on_floor():
 		if Input.is_action_pressed("ui_right"):
@@ -33,12 +33,12 @@ func _physics_process(delta):
 		else:
 			$Sprite.play("Idle")
 			friction = true
-		
+
 		if jumping:
 			jumping = false
 			$Sprite.play("Landing")
 
-			
+
 		if Input.is_action_pressed("ui_up"):
 			$jump.play(0)
 			jumping = true
@@ -52,7 +52,7 @@ func _physics_process(delta):
 		elif motion.y < 0:
 			$Sprite.play("Jumping")
 
-		
+
 		if friction == true:
 			motion.x = lerp(motion.x, 0, AIR_FRICTION)
 

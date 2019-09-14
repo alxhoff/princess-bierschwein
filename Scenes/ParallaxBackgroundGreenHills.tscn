@@ -11,8 +11,8 @@
 
 [node name="Sky" type="ParallaxLayer" parent="."]
 editor/display_folded = true
-position = Vector2( 0, -500 )
-scale = Vector2( 3, 3 )
+position = Vector2( 0, -700 )
+scale = Vector2( 3, 6 )
 motion_scale = Vector2( 0.1, 0.1 )
 __meta__ = {
 "_edit_group_": true
@@ -34,7 +34,7 @@ centered = false
 
 [node name="Background Mountains" type="ParallaxLayer" parent="."]
 editor/display_folded = true
-position = Vector2( -200, -350 )
+position = Vector2( -200, -100 )
 scale = Vector2( 2, 2 )
 motion_scale = Vector2( 0.15, 0.15 )
 motion_mirroring = Vector2( 1152, 0 )
@@ -64,7 +64,7 @@ region_rect = Rect2( 0, 0, 384, 216 )
 
 [node name="Mid Mountains" type="ParallaxLayer" parent="."]
 editor/display_folded = true
-position = Vector2( -200, -325 )
+position = Vector2( -200, -100 )
 scale = Vector2( 2, 2 )
 motion_scale = Vector2( 0.2, 0.2 )
 motion_mirroring = Vector2( 1152, 0 )
@@ -94,8 +94,8 @@ region_rect = Rect2( 0, 0, 384, 216 )
 
 [node name="Back Clouds" type="ParallaxLayer" parent="."]
 editor/display_folded = true
-position = Vector2( -200, -900 )
-scale = Vector2( 2, 6 )
+position = Vector2( -200, -150 )
+scale = Vector2( 2, 3 )
 motion_scale = Vector2( 0.22, 0.22 )
 motion_mirroring = Vector2( 1152, 0 )
 __meta__ = {
@@ -125,7 +125,7 @@ region_rect = Rect2( 0, 0, 384, 216 )
 [node name="Hill" type="ParallaxLayer" parent="."]
 editor/display_folded = true
 light_mask = 11265
-position = Vector2( -200, -400 )
+position = Vector2( -226.657, -150 )
 scale = Vector2( 2, 3 )
 motion_scale = Vector2( 0.25, 0.3 )
 motion_mirroring = Vector2( 1152, 0 )
@@ -155,8 +155,8 @@ region_rect = Rect2( 0, 0, 384, 216 )
 
 [node name="Front Clouds" type="ParallaxLayer" parent="."]
 editor/display_folded = true
-position = Vector2( -200, -1200 )
-scale = Vector2( 2, 6 )
+position = Vector2( -200, -150 )
+scale = Vector2( 2, 3 )
 motion_scale = Vector2( 0.3, 1 )
 motion_mirroring = Vector2( 1152, 0 )
 __meta__ = {
