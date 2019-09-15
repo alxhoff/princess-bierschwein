@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-onready var score_label = $top_ui/MarginContainer/HBoxContainer/BeerCountHBox/BeerCountLabel
+onready var score_label = $top_ui/MarginContainer/HBoxContainer/BeerCountHBox/MarginContainer/BeerCountLabel
 
 
 # Called when the node enters the scene tree for the first time.
@@ -9,5 +9,5 @@ func _ready():
 
 func _process(delta):
 	if !score_label:
-		score_label = $top_ui/MarginContainer/HBoxContainer/BeerCountHBox/BeerCountLabel
+		score_label = $top_ui/MarginContainer/HBoxContainer/BeerCountHBox/MarginContainer/BeerCountLabel
 	score_label.text = String(global_var.beer_count)
