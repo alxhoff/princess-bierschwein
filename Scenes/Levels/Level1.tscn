@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Tilesets/ForestFloor.tres" type="TileSet" id=1]
 [ext_resource path="res://Tilesets/ForestPlatform.tres" type="TileSet" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (3).png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Stone.png" type="Texture" id=15]
 [ext_resource path="res://Scenes/CollectableBeer.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/Boy.tscn" type="PackedScene" id=17]
 
 [node name="World" type="Node"]
 __meta__ = {
@@ -149,6 +150,7 @@ position = Vector2( 956.167, -360.387 )
 texture = ExtResource( 5 )
 
 [node name="Collectables" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="CollectableBeer" parent="Collectables" instance=ExtResource( 16 )]
 position = Vector2( 366.585, 171.837 )
@@ -193,6 +195,14 @@ scale = Vector2( 0.5, 0.5 )
 [node name="CollectableBeer9" parent="Collectables" instance=ExtResource( 16 )]
 position = Vector2( 2142.23, 365.153 )
 scale = Vector2( 0.5, 0.5 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Boy" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 486.336, 182.788 )
+
+[node name="Boy2" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 842.823, 373.215 )
 [connection signal="body_entered" from="Collectables/CollectableBeer" to="Collectables/CollectableBeer" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer2" to="Collectables/CollectableBeer2" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer3" to="Collectables/CollectableBeer3" method="_on_CollectableBeer_body_entered"]
