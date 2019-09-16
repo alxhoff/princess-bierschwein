@@ -3,7 +3,7 @@
 [ext_resource path="res://Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=1]
 
 [resource]
-size = 60
+size = 50
 outline_color = Color( 0, 0.6, 0.835294, 1 )
 use_mipmaps = true
 use_filter = true

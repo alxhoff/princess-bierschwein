@@ -1,13 +1,28 @@
 extends Area2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+const SPEED = 200
+var velocity = Vector2()
+var direction = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func set_direction(dir):
+	direction = dir
+	if dir == -1:
+		$AnimatedSprite.flip_h = true
+	else:
+		$AnimatedSprite.flip_h = false
+
+func _physics_process(delta):
+	velocity.x = SPEED * delta * direction
+	translate(velocity)
+	$AnimatedSprite.play("Spinning")
+
+func _on_VisibilityNotifier2D_screen_exited():
+	queue_free()
+
+
+func _on_Burp_body_entered(body):
+	queue_free()

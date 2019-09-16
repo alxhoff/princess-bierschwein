@@ -9,6 +9,8 @@ const AIR_FRICTION = 0.05
 const JUMP_HEIGHT = -900
 const MIN_JUMP = -450
 
+const BURP = preload("res://Scenes/Burp.tscn")
+
 var motion = Vector2()
 var jumping = false
 
@@ -20,9 +22,24 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_right"):
 		motion.x = min(motion.x + ACCELERATION, MAX_SPEED)
 		$Sprite.flip_h = false
+		if sign($Position2D.position.x) == -1:
+			$Position2D.position.x *= -1
 	elif Input.is_action_pressed("ui_left"):
 		motion.x = max(motion.x - ACCELERATION, -MAX_SPEED)
 		$Sprite.flip_h = true
+		if sign($Position2D.position.x) == 1:
+			$Position2D.position.x *= -1
+		
+	if Input.is_action_just_pressed("ui_select"):
+		var burp = BURP.instance()
+		if sign($Position2D.position.x) == 1:
+			burp.set_direction(1)
+		else:
+			#set burp x extra over
+			burp.set_direction(-1)
+		get_parent().add_child(burp)
+		burp.position = $Position2D.global_position
+
 
 
 	if is_on_floor():
