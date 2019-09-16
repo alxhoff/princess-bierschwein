@@ -149,7 +149,6 @@ position = Vector2( 956.167, -360.387 )
 texture = ExtResource( 5 )
 
 [node name="Collectables" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="CollectableBeer" parent="Collectables" instance=ExtResource( 16 )]
 position = Vector2( 366.585, 171.837 )

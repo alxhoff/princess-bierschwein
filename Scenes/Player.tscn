@@ -185,7 +185,7 @@ editor_draw_drag_margin = true
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 frames = SubResource( 1 )
-frame = 3
+frame = 10
 
 [node name="jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 119 )

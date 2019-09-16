@@ -23,6 +23,8 @@ resource_name = "scroll"
 script = ExtResource( 1 )
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 2 )]
+offset = Vector2( 50, 650 )
+transform = Transform2D( 1, 0, 0, 1, 50, 650 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0

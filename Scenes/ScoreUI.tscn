@@ -52,131 +52,178 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 16.0
 margin_top = -176.0
-margin_right = -16.0
+margin_right = -109.0
 margin_bottom = -16.0
-custom_constants/margin_top = 4
+rect_min_size = Vector2( 800, 100 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="top_ui/MarginContainer"]
-margin_top = 4.0
-margin_right = 927.0
+margin_right = 1175.0
 margin_bottom = 160.0
-custom_constants/separation = 60
-alignment = 1
+size_flags_stretch_ratio = 0.0
+custom_constants/separation = 80
 
-[node name="ProgressVBox" type="VBoxContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_right = 150.0
-margin_bottom = 156.0
+[node name="MarginProgress" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
+margin_right = 330.0
+margin_bottom = 160.0
+custom_constants/margin_left = 30
 
-[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/ProgressVBox"]
-margin_right = 150.0
+[node name="ProgressVBox" type="VBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress"]
+margin_left = 30.0
+margin_right = 330.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 300, 0 )
+size_flags_stretch_ratio = 3.0
+custom_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox"]
+editor/display_folded = true
+margin_right = 300.0
 margin_bottom = 90.0
 
-[node name="ProgressPercentageLabel" type="Label" parent="top_ui/MarginContainer/HBoxContainer/ProgressVBox/MarginContainer"]
-margin_right = 150.0
+[node name="HBoxContainer" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer"]
+editor/display_folded = true
+margin_right = 300.0
+margin_bottom = 90.0
+
+[node name="BeerCurrent" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
+margin_right = 97.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 1
 custom_fonts/font = ExtResource( 3 )
-text = "000"
+text = "00"
 align = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/ProgressVBox"]
-margin_top = 94.0
-margin_right = 150.0
-margin_bottom = 118.0
-custom_constants/margin_right = -5
-custom_constants/margin_left = 5
+[node name="ProgressPercentageLabel2" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
+margin_left = 101.0
+margin_right = 198.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "/"
+align = 1
+
+[node name="BeerTotal" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
+margin_left = 202.0
+margin_right = 300.0
+margin_bottom = 90.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+custom_fonts/font = ExtResource( 3 )
+text = "00"
+align = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox"]
+margin_top = 90.0
+margin_right = 300.0
+margin_bottom = 120.0
+custom_constants/margin_right = 10
+custom_constants/margin_left = 0
 custom_constants/margin_bottom = -5
 
-[node name="ProgressBar" type="TextureProgress" parent="top_ui/MarginContainer/HBoxContainer/ProgressVBox/MarginContainer2"]
-margin_left = 5.0
-margin_right = 155.0
-margin_bottom = 29.0
-value = 50.0
-texture_progress = ExtResource( 4 )
-
-[node name="BeerCountHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_left = 210.0
-margin_right = 522.0
-margin_bottom = 156.0
+[node name="ProgressBar" type="TextureProgress" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer2"]
+margin_right = 290.0
+margin_bottom = 35.0
+rect_min_size = Vector2( 260, 35 )
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.0
+value = 100.0
+allow_greater = true
+texture_progress = ExtResource( 4 )
+nine_patch_stretch = true
+
+[node name="MarginBeerCount" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
+margin_left = 410.0
+margin_right = 708.0
+margin_bottom = 160.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 14
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="BeerCountHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount"]
+margin_left = 20.0
+margin_top = 14.0
+margin_right = 278.0
+margin_bottom = 140.0
+rect_min_size = Vector2( 200, 100 )
+size_flags_horizontal = 3
+custom_constants/separation = 50
 alignment = 1
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/BeerCountHBox"]
-margin_left = 50.0
-margin_right = 150.0
-margin_bottom = 156.0
+[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox"]
+margin_right = 100.0
+margin_bottom = 126.0
 rect_min_size = Vector2( 100, 100 )
 custom_constants/margin_right = 5
-custom_constants/margin_top = 0
+custom_constants/margin_top = 5
 custom_constants/margin_left = 5
 custom_constants/margin_bottom = 5
 
-[node name="BeerSprite" type="AnimatedSprite" parent="top_ui/MarginContainer/HBoxContainer/BeerCountHBox/MarginContainer2"]
-position = Vector2( 0, 10 )
+[node name="BeerSprite" type="AnimatedSprite" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer2"]
 frames = SubResource( 2 )
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/BeerCountHBox"]
-margin_left = 154.0
-margin_right = 262.0
-margin_bottom = 156.0
+[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox"]
+margin_left = 150.0
+margin_right = 258.0
+margin_bottom = 126.0
 rect_min_size = Vector2( 100, 100 )
 
-[node name="BeerCountLabel" type="Label" parent="top_ui/MarginContainer/HBoxContainer/BeerCountHBox/MarginContainer"]
+[node name="BeerCountLabel" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer"]
 margin_right = 108.0
-margin_bottom = 156.0
+margin_bottom = 126.0
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0.6, 0.835294, 1 )
 text = "00"
 align = 1
 
-[node name="LivesHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_left = 582.0
-margin_top = -7.0
-margin_right = 927.0
-margin_bottom = 149.0
+[node name="MarginLives" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
+margin_left = 788.0
+margin_right = 1108.0
+margin_bottom = 160.0
+
+[node name="LivesHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives"]
+margin_right = 320.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 200, 100 )
 size_flags_horizontal = 3
-size_flags_stretch_ratio = 2.2
-custom_constants/separation = 20
-alignment = 1
+custom_constants/separation = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox"]
-margin_left = 2.0
-margin_right = 102.0
-margin_bottom = 156.0
+[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
+margin_right = 100.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
-custom_constants/margin_top = 0
 
-[node name="Sprite" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox/MarginContainer"]
+[node name="Sprite" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/MarginContainer"]
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 21 )
 centered = false
 
-[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox"]
-margin_left = 122.0
-margin_right = 222.0
-margin_bottom = 156.0
+[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
+margin_left = 110.0
+margin_right = 210.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
 
-[node name="Sprite2" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox/MarginContainer2"]
+[node name="Sprite2" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/MarginContainer2"]
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 21 )
 centered = false
 
-[node name="MarginContainer3" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox"]
-margin_left = 242.0
-margin_right = 342.0
-margin_bottom = 156.0
+[node name="MarginContainer3" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
+margin_left = 220.0
+margin_right = 320.0
+margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
 
-[node name="Sprite3" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/LivesHBox/MarginContainer3"]
+[node name="Sprite3" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/MarginContainer3"]
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 21 )
