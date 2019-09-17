@@ -4,6 +4,7 @@ const SPEED = 200
 var velocity = Vector2()
 var direction = 1
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -25,4 +26,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 
 func _on_Burp_body_entered(body):
-	queue_free()
+	if body.name != "Player":
+		if "Boy" in body.name:
+			body.kill()
+		queue_free()
+	

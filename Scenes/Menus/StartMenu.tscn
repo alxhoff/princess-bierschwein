@@ -38,11 +38,11 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1068.0
-margin_bottom = 650.0
+margin_bottom = 681.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/CenterContainer"]
 margin_right = 1048.0
-margin_bottom = 630.0
+margin_bottom = 661.0
 size_flags_vertical = 2
 custom_constants/separation = 60
 alignment = 1
@@ -108,11 +108,11 @@ text = "Exit"
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 585.0
 margin_right = 1048.0
-margin_bottom = 630.0
+margin_bottom = 661.0
 
 [node name="Label" type="Label" parent="MarginContainer/CenterContainer/VBoxContainer/MarginContainer3"]
 margin_right = 1048.0
-margin_bottom = 45.0
+margin_bottom = 76.0
 custom_fonts/font = ExtResource( 4 )
 text = "Toni's Little Gäu venture"
 align = 1

@@ -8,7 +8,6 @@ func _on_OptionsButton_pressed():
 
 
 func _on_StartButton_pressed():
-	print("start pressed")
 	get_tree().change_scene("res://Scenes/Levels/Level1.tscn")
 
 

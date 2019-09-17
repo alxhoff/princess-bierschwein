@@ -203,6 +203,15 @@ position = Vector2( 486.336, 182.788 )
 
 [node name="Boy2" parent="Enemies" instance=ExtResource( 17 )]
 position = Vector2( 842.823, 373.215 )
+
+[node name="Boy3" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 1356.83, 374.722 )
+
+[node name="Boy4" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 2668.21, 53.6588 )
+
+[node name="Boy5" parent="Enemies" instance=ExtResource( 17 )]
+position = Vector2( 3078.21, -69.9432 )
 [connection signal="body_entered" from="Collectables/CollectableBeer" to="Collectables/CollectableBeer" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer2" to="Collectables/CollectableBeer2" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer3" to="Collectables/CollectableBeer3" method="_on_CollectableBeer_body_entered"]
