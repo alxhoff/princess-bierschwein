@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=2]
+[gd_scene load_steps=124 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/AnimatedPlayerSprite.tscn" type="PackedScene" id=2]
@@ -159,7 +159,7 @@ animations = [ {
 "speed": 24.0
 }, {
 "frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ) ],
-"loop": true,
+"loop": false,
 "name": "Dead",
 "speed": 24.0
 } ]
@@ -167,6 +167,23 @@ animations = [ {
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 38.0
 height = 45.0
+
+[sub_resource type="Animation" id=3]
+resource_name = "Flashing"
+length = 0.5
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 0, 336.4 )
@@ -185,7 +202,7 @@ editor_draw_drag_margin = true
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 frames = SubResource( 1 )
-frame = 8
+frame = 5
 
 [node name="jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 119 )
@@ -200,3 +217,12 @@ shape = SubResource( 2 )
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 75, 18 )
 z_index = 5
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("")
+anims/Flashing = SubResource( 3 )
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
