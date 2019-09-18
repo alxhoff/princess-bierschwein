@@ -12,6 +12,9 @@ const MIN_JUMP = -450
 const BURP = preload("res://Scenes/Burp.tscn")
 
 signal life_lost
+signal sound_jump
+signal sound_burp
+signal sound_dead
 
 var motion = Vector2()
 var jumping = false
@@ -37,6 +40,7 @@ func _physics_process(delta):
 				$Position2D.position.x *= -1
 			
 		if Input.is_action_just_pressed("ui_select"):
+			emit_signal("sound_burp")
 			var burp = BURP.instance()
 			if sign($Position2D.position.x) == 1:
 				burp.set_direction(1)
@@ -61,7 +65,7 @@ func _physics_process(delta):
 	
 	
 			if Input.is_action_pressed("ui_up"):
-				$jump.play(0)
+				emit_signal("sound_jump")
 				jumping = true
 				motion.y = JUMP_HEIGHT
 			if friction == true:
@@ -87,12 +91,15 @@ func _physics_process(delta):
 		pass
 		
 func dead():
+	emit_signal("sound_dead")
 	dead = true
 	$Sprite.play("Dead")
 	$CollisionShape2D.call_deferred("set_disabled", true)
 	emit_signal("life_lost")
 	if game_over != true:
 		$Timer.start()
+
+
 
 func _on_Timer_timeout():
 	dead = false

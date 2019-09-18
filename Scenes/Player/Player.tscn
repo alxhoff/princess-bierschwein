@@ -118,7 +118,7 @@
 [ext_resource path="res://Sprites/Player/Girl/Dead (28).png" type="Texture" id=116]
 [ext_resource path="res://Sprites/Player/Girl/Dead (29).png" type="Texture" id=117]
 [ext_resource path="res://Sprites/Player/Girl/Dead (30).png" type="Texture" id=118]
-[ext_resource path="res://Sounds/sound_jump.wav" type="AudioStream" id=119]
+[ext_resource path="res://Scenes/Player/PlayerSound.tscn" type="PackedScene" id=119]
 [ext_resource path="res://Scenes/ParallaxBackgroundGreenHills.tscn" type="PackedScene" id=120]
 [ext_resource path="res://Scenes/Player/BeerCollector.gd" type="Script" id=121]
 [ext_resource path="res://Scenes/Player/Beers.gd" type="Script" id=122]
@@ -205,10 +205,8 @@ editor_draw_drag_margin = true
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 frames = SubResource( 1 )
-frame = 11
 
-[node name="jump" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 119 )
+[node name="PlayerSound" parent="." instance=ExtResource( 119 )]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource( 120 )]
 
@@ -245,6 +243,9 @@ script = ExtResource( 123 )
 [connection signal="life_lost" from="." to="Lives" method="_on_Player_life_lost"]
 [connection signal="reset_beer_count" from="." to="Beers" method="_on_Player_reset_beer_count"]
 [connection signal="reset_lives" from="." to="Lives" method="_on_Player_reset_lives"]
+[connection signal="sound_burp" from="." to="PlayerSound" method="_on_Player_sound_burp"]
+[connection signal="sound_dead" from="." to="PlayerSound" method="_on_Player_sound_dead"]
+[connection signal="sound_jump" from="." to="PlayerSound" method="_on_Player_sound_jump"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="BeerCollector" to="BeerCollector" method="_on_BeerCollector_area_entered"]
 [connection signal="beer_collected" from="BeerCollector" to="Beers" method="_on_BeerCollector_beer_collected"]

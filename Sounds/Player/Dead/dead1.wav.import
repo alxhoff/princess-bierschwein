@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dead1.wav-c3281e18d442cd654e752c972b7bea11.sample"
+
+[deps]
+
+source_file="res://Sounds/Player/Dead/dead1.wav"
+dest_files=[ "res://.import/dead1.wav-c3281e18d442cd654e752c972b7bea11.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
