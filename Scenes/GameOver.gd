@@ -24,3 +24,7 @@ func _on_QuitButton_pressed():
 	set_visible(false)
 	global_var.reset_game()
 	get_tree().change_scene("res://Scenes/Menus/StartMenu.tscn")
+
+
+func _on_Lives_game_over():
+		set_visible(true)

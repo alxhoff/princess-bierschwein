@@ -46,3 +46,4 @@ script = ExtResource( 6 )
 [node name="LifeCounter" parent="top_ui/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
 script = ExtResource( 8 )
 [connection signal="beer_count_updated" from="." to="top_ui/MarginContainer/HBoxContainer/BeerCounter" method="_on_ScoreUI_beer_count_updated"]
+[connection signal="life_count_updated" from="." to="top_ui/MarginContainer/HBoxContainer/LifeCounter" method="_on_ScoreUI_life_count_updated"]

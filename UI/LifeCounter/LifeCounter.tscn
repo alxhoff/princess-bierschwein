@@ -20,6 +20,7 @@ margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
 
 [node name="Sprite1" type="Sprite" parent="LivesHBox/Margin1"]
+visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 1 )
@@ -32,6 +33,7 @@ margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
 
 [node name="Sprite2" type="Sprite" parent="LivesHBox/Margin2"]
+visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 1 )
@@ -44,6 +46,7 @@ margin_bottom = 160.0
 rect_min_size = Vector2( 100, 100 )
 
 [node name="Sprite3" type="Sprite" parent="LivesHBox/Margin3"]
+visible = false
 position = Vector2( 0, 20 )
 scale = Vector2( 0.113, 0.113 )
 texture = ExtResource( 1 )

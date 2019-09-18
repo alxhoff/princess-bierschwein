@@ -11,9 +11,12 @@ const MIN_JUMP = -450
 
 const BURP = preload("res://Scenes/Burp.tscn")
 
+signal life_lost
+
 var motion = Vector2()
 var jumping = false
 var dead = false
+var game_over = false
 
 func _physics_process(delta):
 	
@@ -87,16 +90,9 @@ func dead():
 	dead = true
 	$Sprite.play("Dead")
 	$CollisionShape2D.call_deferred("set_disabled", true)
-	global_var.lives -= 1
-	get_parent().find_node("ScoreUI").update_lives()
-	if global_var.lives == 0:
-		game_over()
-	else:
+	emit_signal("life_lost")
+	if game_over != true:
 		$Timer.start()
-
-
-func game_over():
-	get_parent().find_node("GameOver").set_visible(true)
 
 func _on_Timer_timeout():
 	dead = false
@@ -104,3 +100,6 @@ func _on_Timer_timeout():
 	position = get_parent().START_POSITION
 	$Sprite.play("Idle")
 	
+
+func _on_Lives_game_over():
+	game_over = true
