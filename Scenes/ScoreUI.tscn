@@ -35,6 +35,7 @@ size = 72
 font_data = ExtResource( 20 )
 
 [node name="ScoreUI" type="CanvasLayer"]
+editor/display_folded = true
 layer = 3
 script = ExtResource( 1 )
 

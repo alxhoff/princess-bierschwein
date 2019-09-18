@@ -34,7 +34,6 @@ func _physics_process(delta):
 				$Position2D.position.x *= -1
 			
 		if Input.is_action_just_pressed("ui_select"):
-			print("shoot")
 			var burp = BURP.instance()
 			if sign($Position2D.position.x) == 1:
 				burp.set_direction(1)
@@ -43,8 +42,6 @@ func _physics_process(delta):
 				burp.set_direction(-1)
 			get_parent().add_child(burp)
 			burp.position = $Position2D.global_position
-	
-	
 	
 		if is_on_floor():
 			if Input.is_action_pressed("ui_right"):
@@ -90,17 +87,16 @@ func dead():
 	dead = true
 	$Sprite.play("Dead")
 	$CollisionShape2D.call_deferred("set_disabled", true)
-	$Timer.start()
 	global_var.lives -= 1
+	get_parent().find_node("ScoreUI").update_lives()
 	if global_var.lives == 0:
-		pass #game over
+		game_over()
 	else:
-		get_parent().find_node("ScoreUI").update_lives()
+		$Timer.start()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
 
+func game_over():
+	get_parent().find_node("GameOver").set_visible(true)
 
 func _on_Timer_timeout():
 	dead = false

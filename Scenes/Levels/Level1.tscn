@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=1]
 [ext_resource path="res://Tilesets/ForestFloor.tres" type="TileSet" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Sprites/Tiles/Forest/Object/Stone.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/CollectableBeer.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/BoyEnemy.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=19]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -214,6 +215,8 @@ position = Vector2( 2668.21, 53.6588 )
 
 [node name="BoyEnemy5" parent="Enemies" instance=ExtResource( 18 )]
 position = Vector2( 3078.21, -75.3318 )
+
+[node name="GameOver" parent="." instance=ExtResource( 19 )]
 [connection signal="body_entered" from="Collectables/CollectableBeer" to="Collectables/CollectableBeer" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer2" to="Collectables/CollectableBeer2" method="_on_CollectableBeer_body_entered"]
 [connection signal="body_entered" from="Collectables/CollectableBeer3" to="Collectables/CollectableBeer3" method="_on_CollectableBeer_body_entered"]
