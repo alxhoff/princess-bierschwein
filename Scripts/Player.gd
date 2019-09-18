@@ -34,6 +34,7 @@ func _physics_process(delta):
 				$Position2D.position.x *= -1
 			
 		if Input.is_action_just_pressed("ui_select"):
+			print("shoot")
 			var burp = BURP.instance()
 			if sign($Position2D.position.x) == 1:
 				burp.set_direction(1)
@@ -80,14 +81,12 @@ func _physics_process(delta):
 		
 		if get_slide_count() > 0:
 			for i in range(get_slide_count()):
-				print(get_slide_collision(i).collider.name)
 				if "Enemy" in get_slide_collision(i).collider.name:
 					dead()
 	else:
 		pass
 		
 func dead():
-	print("Dead")
 	dead = true
 	$Sprite.play("Dead")
 	$CollisionShape2D.call_deferred("set_disabled", true)

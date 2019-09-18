@@ -27,6 +27,8 @@ func _on_VisibilityNotifier2D_screen_exited():
 
 func _on_Burp_body_entered(body):
 	if body.name != "Player":
+		print("Burp")
+		print(body.name)
 		if "Boy" in body.name:
 			body.kill()
 		queue_free()
