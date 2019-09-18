@@ -1,38 +1,13 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/ScoreUI.gd" type="Script" id=1]
 [ext_resource path="res://UI/TopUI.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/kenney_blocks.tres" type="DynamicFont" id=3]
-[ext_resource path="res://UI/Score Bar Fill.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-1.png.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-2.png.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-3.png.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-4.png.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-5.png.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-6.png.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-7.png.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-8.png.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-9.png.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-10.png.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-11.png.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-12.png.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-13.png.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-14.png.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Objects/animated_beer/beer-15.png.png" type="Texture" id=19]
-[ext_resource path="res://Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=20]
-[ext_resource path="res://Sprites/Objects/star.png" type="Texture" id=21]
-
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
-
-[sub_resource type="DynamicFont" id=2]
-size = 72
-font_data = ExtResource( 20 )
+[ext_resource path="res://UI/ProgressCounter/ProgressCounter.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/ProgressCounter/ProgressCounter.gd" type="Script" id=4]
+[ext_resource path="res://UI/BeerCounter/BeerCounter.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/BeerCounter/BeerCounter.gd" type="Script" id=6]
+[ext_resource path="res://UI/LifeCounter/LifeCounter.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/LifeCounter/LifeCounter.gd" type="Script" id=8]
 
 [node name="ScoreUI" type="CanvasLayer"]
 layer = 3
@@ -62,168 +37,11 @@ margin_bottom = 160.0
 size_flags_stretch_ratio = 0.0
 custom_constants/separation = 80
 
-[node name="MarginProgress" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_right = 330.0
-margin_bottom = 160.0
-custom_constants/margin_left = 30
+[node name="ProgressCounter" parent="top_ui/MarginContainer/HBoxContainer" instance=ExtResource( 3 )]
+script = ExtResource( 4 )
 
-[node name="ProgressVBox" type="VBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress"]
-margin_left = 30.0
-margin_right = 330.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 300, 0 )
-size_flags_stretch_ratio = 3.0
-custom_constants/separation = 0
+[node name="BeerCounter" parent="top_ui/MarginContainer/HBoxContainer" instance=ExtResource( 5 )]
+script = ExtResource( 6 )
 
-[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox"]
-editor/display_folded = true
-margin_right = 300.0
-margin_bottom = 76.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer"]
-editor/display_folded = true
-margin_right = 300.0
-margin_bottom = 76.0
-
-[node name="BeerCurrent" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
-margin_right = 97.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
-text = "00"
-align = 1
-
-[node name="ProgressPercentageLabel2" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
-margin_left = 101.0
-margin_right = 198.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
-text = "/"
-align = 1
-
-[node name="BeerTotal" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer/HBoxContainer"]
-margin_left = 202.0
-margin_right = 300.0
-margin_bottom = 76.0
-size_flags_horizontal = 3
-size_flags_vertical = 1
-custom_fonts/font = ExtResource( 3 )
-text = "00"
-align = 1
-
-[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox"]
-margin_top = 76.0
-margin_right = 300.0
-margin_bottom = 106.0
-custom_constants/margin_right = 10
-custom_constants/margin_left = 0
-custom_constants/margin_bottom = -5
-
-[node name="ProgressBar" type="TextureProgress" parent="top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer2"]
-margin_right = 290.0
-margin_bottom = 35.0
-rect_min_size = Vector2( 260, 35 )
-size_flags_horizontal = 3
-allow_greater = true
-texture_progress = ExtResource( 4 )
-nine_patch_stretch = true
-
-[node name="MarginBeerCount" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_left = 410.0
-margin_right = 708.0
-margin_bottom = 160.0
-custom_constants/margin_right = 20
-custom_constants/margin_top = 14
-custom_constants/margin_left = 20
-custom_constants/margin_bottom = 20
-
-[node name="BeerCountHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount"]
-margin_left = 20.0
-margin_top = 14.0
-margin_right = 278.0
-margin_bottom = 140.0
-rect_min_size = Vector2( 200, 100 )
-size_flags_horizontal = 3
-custom_constants/separation = 50
-alignment = 1
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="MarginContainer2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox"]
-margin_right = 100.0
-margin_bottom = 126.0
-rect_min_size = Vector2( 100, 100 )
-custom_constants/margin_right = 5
-custom_constants/margin_top = 5
-custom_constants/margin_left = 5
-custom_constants/margin_bottom = 5
-
-[node name="BeerSprite" type="AnimatedSprite" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer2"]
-frames = SubResource( 1 )
-centered = false
-
-[node name="MarginContainer" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox"]
-margin_left = 150.0
-margin_right = 258.0
-margin_bottom = 126.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="BeerCountLabel" type="Label" parent="top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer"]
-margin_right = 108.0
-margin_bottom = 126.0
-size_flags_vertical = 1
-custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0, 0.6, 0.835294, 1 )
-text = "00"
-align = 1
-
-[node name="MarginLives" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer"]
-margin_left = 788.0
-margin_right = 1108.0
-margin_bottom = 160.0
-
-[node name="LivesHBox" type="HBoxContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives"]
-margin_right = 320.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 200, 100 )
-size_flags_horizontal = 3
-custom_constants/separation = 10
-
-[node name="Margin1" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
-margin_right = 100.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="Sprite1" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/Margin1"]
-position = Vector2( 0, 20 )
-scale = Vector2( 0.113, 0.113 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Margin2" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
-margin_left = 110.0
-margin_right = 210.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="Sprite2" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/Margin2"]
-position = Vector2( 0, 20 )
-scale = Vector2( 0.113, 0.113 )
-texture = ExtResource( 21 )
-centered = false
-
-[node name="Margin3" type="MarginContainer" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox"]
-margin_left = 220.0
-margin_right = 320.0
-margin_bottom = 160.0
-rect_min_size = Vector2( 100, 100 )
-
-[node name="Sprite3" type="Sprite" parent="top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/Margin3"]
-position = Vector2( 0, 20 )
-scale = Vector2( 0.113, 0.113 )
-texture = ExtResource( 21 )
-centered = false
+[node name="LifeCounter" parent="top_ui/MarginContainer/HBoxContainer" instance=ExtResource( 7 )]
+script = ExtResource( 8 )
