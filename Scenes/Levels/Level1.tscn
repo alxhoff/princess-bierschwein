@@ -1,230 +1,202 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=1]
-[ext_resource path="res://Tilesets/ForestFloor.tres" type="TileSet" id=2]
-[ext_resource path="res://Tilesets/ForestPlatform.tres" type="TileSet" id=3]
-[ext_resource path="res://Scenes/ScoreUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (1).png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (2).png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (4).png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_1.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_3.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Crate.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (3).png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Tiles/Forest/Object/Stone.png" type="Texture" id=16]
-[ext_resource path="res://Scenes/CollectableBeer.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/BoyEnemy.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/BoyEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/CollectableBeer.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (1).png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (2).png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (4).png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Sign_2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Tree_2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Crate.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Bush (3).png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Tiles/Forest/Object/Stone.png" type="Texture" id=13]
+[ext_resource path="res://Tilesets/ForestPlatform.tres" type="TileSet" id=14]
+[ext_resource path="res://Tilesets/ForestFloor.tres" type="TileSet" id=15]
 
-[node name="World" type="Node"]
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_vertical_guides_": [ -447.276 ]
-}
+[node name="Level" type="Node"]
 
-[node name="Non-platform" type="TileMap" parent="."]
+[node name="Enemies" type="Node" parent="."]
+editor/display_folded = true
+
+[node name="BoyEnemy" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 486.336, 182.788 )
+
+[node name="BoyEnemy2" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 842.823, 373.215 )
+
+[node name="BoyEnemy3" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 1356.83, 374.722 )
+
+[node name="BoyEnemy4" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 2668.21, 53.6588 )
+
+[node name="BoyEnemy5" parent="Enemies" instance=ExtResource( 1 )]
+position = Vector2( 3078.21, -75.3318 )
+
+[node name="Collectables" type="Node" parent="."]
+
+[node name="CollectableBeer" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 366.585, 171.837 )
 scale = Vector2( 0.5, 0.5 )
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 128, 128 )
-format = 1
-tile_data = PoolIntArray( -262079, 8, 0, -196543, 8, 0, -131007, 8, 0, -9, 10, 0, -8, 10, 0, -7, 10, 0, -6, 10, 0, -5, 9, 0, -65471, 8, 0, 65528, 13, 0, 65529, 13, 0, 65530, 13, 0, 65531, 12, 0, 46, 11, 0, 51, 9, 0, 65, 8, 0, 131064, 13, 0, 131065, 13, 0, 131066, 13, 0, 131067, 12, 0, 65587, 12, 0, 65601, 8, 0, 196600, 13, 0, 196601, 13, 0, 196602, 13, 0, 196603, 12, 0, 131112, 11, 0, 131123, 12, 0, 131130, 11, 0, 262136, 13, 0, 262137, 13, 0, 262138, 13, 0, 262139, 12, 0, 196648, 8, 0, 196659, 12, 0, 196666, 8, 0, 327672, 13, 0, 327673, 13, 0, 327674, 13, 0, 327675, 12, 0, 262170, 11, 0, 262174, 9, 0, 262181, 11, 0, 262195, 12, 0, 262202, 8, 0, 393208, 13, 0, 393209, 13, 0, 393210, 13, 0, 393211, 12, 0, 327706, 8, 0, 327707, 13, 0, 327708, 13, 0, 327709, 13, 0, 327710, 12, 0, 327717, 8, 0, 458744, 13, 0, 458745, 13, 0, 458746, 13, 0, 458747, 12, 0, 393242, 8, 0, 393243, 13, 0, 393244, 13, 0, 393245, 13, 0, 393246, 12, 0, 393253, 8, 0, 524280, 13, 0, 524281, 13, 0, 524282, 13, 0, 524283, 2, 0, 524284, 1, 0, 524285, 10, 0, 524286, 10, 0, 524287, 10, 0, 458752, 10, 0, 458753, 10, 0, 458754, 10, 0, 458755, 10, 0, 458756, 10, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 10, 0, 458764, 10, 0, 458765, 10, 0, 458766, 10, 0, 458767, 10, 0, 458768, 10, 0, 458769, 10, 0, 458770, 10, 0, 458771, 10, 0, 458772, 10, 0, 458773, 10, 0, 458774, 10, 0, 458775, 10, 0, 458776, 10, 0, 458779, 13, 0, 458780, 13, 0, 458781, 13, 0, 589817, 13, 0, 589818, 13, 0, 589819, 13, 0, 589820, 13, 0, 589821, 13, 0, 589822, 13, 0, 589823, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 13, 0, 524296, 13, 0, 524297, 13, 0, 524298, 13, 0, 524299, 13, 0, 524300, 13, 0, 524301, 13, 0, 524302, 13, 0, 524303, 13, 0, 524304, 13, 0, 524305, 13, 0, 524306, 13, 0, 524307, 13, 0, 524308, 13, 0, 524309, 13, 0, 524310, 13, 0, 524311, 13, 0, 524312, 13, 0, 524313, 13, 0, 524314, 13, 0, 524315, 13, 0, 524316, 13, 0, 524317, 13, 0, 524318, 13, 0, 524319, 13, 0 )
 
-[node name="Platforms" type="TileMap" parent="."]
+[node name="CollectableBeer2" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 681.619, 45.8232 )
 scale = Vector2( 0.5, 0.5 )
-tile_set = ExtResource( 3 )
-cell_size = Vector2( 128, 128 )
-format = 1
-tile_data = PoolIntArray( -327615, 11, 0, -327614, 10, 0, -327613, 10, 0, -327612, 10, 0, -327611, 10, 0, -262105, 16, 0, -262104, 15, 0, -262103, 15, 0, -262102, 15, 0, -262101, 15, 0, -262100, 14, 0, -262079, 8, 0, -262078, 13, 0, -262077, 13, 0, -262076, 13, 0, -262075, 13, 0, -196543, 8, 0, -196542, 13, 0, -196541, 13, 0, -196540, 13, 0, -196539, 13, 0, -131054, 16, 0, -131053, 14, 0, -131038, 16, 0, -131037, 14, 0, -131007, 8, 0, -131006, 13, 0, -131005, 13, 0, -131004, 13, 0, -131003, 13, 0, -65513, 16, 0, -65512, 14, 0, -65471, 8, 0, -65470, 13, 0, -65469, 13, 0, -65468, 13, 0, -65467, 13, 0, 14, 16, 0, 15, 14, 0, 29, 16, 0, 30, 14, 0, 46, 11, 0, 47, 10, 0, 48, 10, 0, 49, 10, 0, 50, 10, 0, 51, 9, 0, 65, 8, 0, 66, 13, 0, 67, 13, 0, 68, 13, 0, 69, 13, 0, 65582, 8, 0, 65583, 13, 0, 65584, 13, 0, 65585, 13, 0, 65586, 13, 0, 65587, 12, 0, 65601, 8, 0, 65602, 13, 0, 65603, 13, 0, 65604, 13, 0, 65605, 13, 0, 131082, 16, 0, 131083, 14, 0, 131112, 11, 0, 131113, 10, 0, 131114, 10, 0, 131115, 10, 0, 131116, 10, 0, 131117, 0, 0, 131118, 7, 0, 131119, 13, 0, 131120, 13, 0, 131121, 13, 0, 131122, 13, 0, 131123, 12, 0, 131130, 11, 0, 131131, 10, 0, 131132, 10, 0, 131133, 10, 0, 131134, 10, 0, 131135, 10, 0, 131136, 0, 0, 131137, 7, 0, 131138, 13, 0, 131139, 13, 0, 131140, 13, 0, 131141, 13, 0, 196648, 8, 0, 196649, 13, 0, 196650, 13, 0, 196651, 13, 0, 196652, 13, 0, 196653, 13, 0, 196654, 13, 0, 196655, 13, 0, 196656, 13, 0, 196657, 13, 0, 196658, 13, 0, 196659, 12, 0, 196666, 8, 0, 196667, 13, 0, 196668, 13, 0, 196669, 13, 0, 196670, 13, 0, 196671, 13, 0, 196672, 13, 0, 196673, 13, 0, 196674, 13, 0, 196675, 13, 0, 196676, 13, 0, 196677, 13, 0, 262149, 11, 0, 262150, 10, 0, 262151, 10, 0, 262152, 10, 0, 262153, 9, 0, 262170, 11, 0, 262171, 10, 0, 262172, 10, 0, 262173, 10, 0, 262174, 9, 0, 262181, 11, 0, 262182, 10, 0, 262183, 0, 0, 262184, 7, 0, 262185, 13, 0, 262186, 13, 0, 262187, 13, 0, 262188, 13, 0, 262189, 13, 0, 262190, 13, 0, 262191, 13, 0, 262192, 13, 0, 262193, 13, 0, 262194, 13, 0, 262195, 12, 0, 262202, 8, 0, 262203, 13, 0, 262204, 13, 0, 262205, 13, 0, 262206, 13, 0, 262207, 13, 0, 262208, 13, 0, 262209, 13, 0, 262210, 13, 0, 262211, 13, 0, 262212, 13, 0, 262213, 13, 0, 327685, 8, 0, 327686, 13, 0, 327687, 13, 0, 327688, 13, 0, 327689, 12, 0, 327706, 8, 0, 327710, 12, 0, 327717, 8, 0, 327718, 13, 0, 327719, 13, 0, 327720, 13, 0, 327721, 13, 0, 327722, 13, 0, 327723, 13, 0, 327724, 13, 0, 327725, 13, 0, 327726, 13, 0, 327727, 13, 0, 327728, 13, 0, 327729, 13, 0, 327730, 13, 0, 327731, 2, 0, 327732, 1, 0, 327733, 10, 0, 327734, 10, 0, 327735, 10, 0, 327736, 10, 0, 327737, 0, 0, 327738, 7, 0, 327739, 13, 0, 327740, 13, 0, 327741, 13, 0, 327742, 13, 0, 327743, 13, 0, 327744, 13, 0, 327745, 13, 0, 327746, 13, 0, 327747, 13, 0, 327748, 13, 0, 327749, 13, 0, 393221, 8, 0, 393222, 13, 0, 393223, 13, 0, 393224, 13, 0, 393225, 12, 0, 393242, 8, 0, 393246, 12, 0, 393253, 8, 0, 393254, 13, 0, 393255, 13, 0, 393256, 13, 0, 393257, 13, 0, 393258, 13, 0, 393259, 13, 0, 393260, 13, 0, 393261, 13, 0, 393262, 13, 0, 393263, 13, 0, 393264, 13, 0, 393265, 13, 0, 393266, 13, 0, 393267, 13, 0, 393268, 13, 0, 393269, 13, 0, 393270, 13, 0, 393271, 13, 0, 393272, 13, 0, 393273, 13, 0, 393274, 13, 0, 393275, 13, 0, 393276, 13, 0, 393277, 13, 0, 393278, 13, 0, 393279, 13, 0, 393280, 13, 0, 393281, 13, 0, 393282, 13, 0, 393283, 13, 0, 393284, 13, 0, 393285, 13, 0, 458777, 0, 0, 458778, 7, 0, 458782, 2, 0, 458783, 1, 0, 458784, 10, 0, 458785, 10, 0, 458786, 10, 0, 458787, 10, 0, 458788, 0, 0, 458789, 7, 0, 458790, 13, 0, 458791, 13, 0, 458792, 13, 0, 458793, 13, 0, 458794, 13, 0, 458795, 13, 0, 458796, 13, 0, 458797, 13, 0, 458798, 13, 0, 458799, 13, 0, 458800, 13, 0, 458801, 13, 0, 458802, 13, 0, 458803, 13, 0, 458804, 13, 0, 458805, 13, 0, 458806, 13, 0, 458807, 13, 0, 458808, 13, 0, 458809, 13, 0, 458810, 13, 0, 458811, 13, 0, 458812, 13, 0, 458813, 13, 0, 458814, 13, 0, 458815, 13, 0, 458816, 13, 0, 458817, 13, 0, 458818, 13, 0, 458819, 13, 0, 458820, 13, 0, 458821, 13, 0 )
 
-[node name="UI" type="Node" parent="."]
+[node name="CollectableBeer3" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 930.782, -80.1905 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="ScoreUI" parent="UI" instance=ExtResource( 4 )]
+[node name="CollectableBeer4" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 1189.97, -201.908 )
+scale = Vector2( 0.5, 0.5 )
 
-[node name="Player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 0, 380 )
+[node name="CollectableBeer5" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 1512.16, -138.901 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer6" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 1895.93, -73.0306 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer7" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 2218.13, -216.228 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer8" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 3620.03, 260.619 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer10" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 4068.23, -123.15 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer11" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 2740.8, 47.2551 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="CollectableBeer9" parent="Collectables" instance=ExtResource( 2 )]
+position = Vector2( 2142.23, 365.153 )
+scale = Vector2( 0.5, 0.5 )
 
 [node name="PassiveObjects" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="Bush (1)" type="Sprite" parent="PassiveObjects"]
 position = Vector2( -146.157, 415.208 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 
 [node name="Bush (2)" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 343.625, 417.758 )
-texture = ExtResource( 7 )
+texture = ExtResource( 4 )
 
 [node name="Bush (4)" type="Sprite" parent="PassiveObjects"]
 position = Vector2( -81.2688, 429.703 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Sign_1" type="Sprite" parent="PassiveObjects"]
 position = Vector2( -149.4, 420.123 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
 [node name="Sign_2" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 775.829, 417.64 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Tree_1" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 720.581, 429.917 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="Tree_3" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 1169.93, 315.737 )
-texture = ExtResource( 12 )
+texture = ExtResource( 9 )
 
 [node name="Bush (4)2" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 672.699, 432.372 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Sign_3" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 4059.35, 99.3902 )
 scale = Vector2( 0.760359, 0.723164 )
-texture = ExtResource( 9 )
+texture = ExtResource( 6 )
 
 [node name="Tree_2" type="Sprite" parent="PassiveObjects"]
 position = Vector2( 2709, -361.705 )
 scale = Vector2( 0.760359, 0.723164 )
-texture = ExtResource( 13 )
+texture = ExtResource( 10 )
 
 [node name="Crate" type="Sprite" parent="PassiveObjects"]
 editor/display_folded = true
 position = Vector2( 3210.3, -28.0554 )
 scale = Vector2( 0.760359, 0.723164 )
-texture = ExtResource( 14 )
+texture = ExtResource( 11 )
 
 [node name="Bush (1)" type="Sprite" parent="PassiveObjects/Crate"]
 editor/display_folded = true
 position = Vector2( -80.9814, 7.92065 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 
 [node name="Sign_2" type="Sprite" parent="PassiveObjects/Crate/Bush (1)"]
 position = Vector2( -1666.31, 350.486 )
-texture = ExtResource( 10 )
+texture = ExtResource( 7 )
 
 [node name="Bush (4)" type="Sprite" parent="PassiveObjects/Crate/Bush (1)"]
 position = Vector2( -1577.8, 7.92057 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Bush (3)" type="Sprite" parent="PassiveObjects/Crate/Bush (1)"]
 editor/display_folded = true
 position = Vector2( -828.252, 366.327 )
-texture = ExtResource( 15 )
+texture = ExtResource( 12 )
 
 [node name="Bush (1)" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( 212.811, -190.094 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 
 [node name="Bush (4)" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( 293.792, -176.233 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Stone" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( -558.222, 263.36 )
-texture = ExtResource( 16 )
+texture = ExtResource( 13 )
 
 [node name="Stone2" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( -482.89, 261.38 )
-texture = ExtResource( 16 )
+texture = ExtResource( 13 )
 
 [node name="Bush (4)2" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( -511.14, 267.32 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Tree_1" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( -411.326, 265.34 )
-texture = ExtResource( 11 )
+texture = ExtResource( 8 )
 
 [node name="Stone3" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( 1140.73, 83.1661 )
-texture = ExtResource( 16 )
+texture = ExtResource( 13 )
 
 [node name="Bush (4)3" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( 1210.41, 85.1463 )
-texture = ExtResource( 8 )
+texture = ExtResource( 5 )
 
 [node name="Bush (1)2" type="Sprite" parent="PassiveObjects/Crate/Bush (1)/Bush (3)"]
 position = Vector2( 956.167, -360.387 )
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 
-[node name="Collectables" type="Node" parent="."]
-editor/display_folded = true
-
-[node name="CollectableBeer" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 366.585, 171.837 )
+[node name="Platforms" type="TileMap" parent="."]
 scale = Vector2( 0.5, 0.5 )
+tile_set = ExtResource( 14 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -327615, 11, 0, -327614, 10, 0, -327613, 10, 0, -327612, 10, 0, -327611, 10, 0, -262105, 16, 0, -262104, 15, 0, -262103, 15, 0, -262102, 15, 0, -262101, 15, 0, -262100, 14, 0, -262079, 8, 0, -262078, 13, 0, -262077, 13, 0, -262076, 13, 0, -262075, 13, 0, -196543, 8, 0, -196542, 13, 0, -196541, 13, 0, -196540, 13, 0, -196539, 13, 0, -131054, 16, 0, -131053, 14, 0, -131038, 16, 0, -131037, 14, 0, -131007, 8, 0, -131006, 13, 0, -131005, 13, 0, -131004, 13, 0, -131003, 13, 0, -65513, 16, 0, -65512, 14, 0, -65471, 8, 0, -65470, 13, 0, -65469, 13, 0, -65468, 13, 0, -65467, 13, 0, 14, 16, 0, 15, 14, 0, 29, 16, 0, 30, 14, 0, 46, 11, 0, 47, 10, 0, 48, 10, 0, 49, 10, 0, 50, 10, 0, 51, 9, 0, 65, 8, 0, 66, 13, 0, 67, 13, 0, 68, 13, 0, 69, 13, 0, 65582, 8, 0, 65583, 13, 0, 65584, 13, 0, 65585, 13, 0, 65586, 13, 0, 65587, 12, 0, 65601, 8, 0, 65602, 13, 0, 65603, 13, 0, 65604, 13, 0, 65605, 13, 0, 131082, 16, 0, 131083, 14, 0, 131112, 11, 0, 131113, 10, 0, 131114, 10, 0, 131115, 10, 0, 131116, 10, 0, 131117, 0, 0, 131118, 7, 0, 131119, 13, 0, 131120, 13, 0, 131121, 13, 0, 131122, 13, 0, 131123, 12, 0, 131130, 11, 0, 131131, 10, 0, 131132, 10, 0, 131133, 10, 0, 131134, 10, 0, 131135, 10, 0, 131136, 0, 0, 131137, 7, 0, 131138, 13, 0, 131139, 13, 0, 131140, 13, 0, 131141, 13, 0, 196648, 8, 0, 196649, 13, 0, 196650, 13, 0, 196651, 13, 0, 196652, 13, 0, 196653, 13, 0, 196654, 13, 0, 196655, 13, 0, 196656, 13, 0, 196657, 13, 0, 196658, 13, 0, 196659, 12, 0, 196666, 8, 0, 196667, 13, 0, 196668, 13, 0, 196669, 13, 0, 196670, 13, 0, 196671, 13, 0, 196672, 13, 0, 196673, 13, 0, 196674, 13, 0, 196675, 13, 0, 196676, 13, 0, 196677, 13, 0, 262149, 11, 0, 262150, 10, 0, 262151, 10, 0, 262152, 10, 0, 262153, 9, 0, 262170, 11, 0, 262171, 10, 0, 262172, 10, 0, 262173, 10, 0, 262174, 9, 0, 262181, 11, 0, 262182, 10, 0, 262183, 0, 0, 262184, 7, 0, 262185, 13, 0, 262186, 13, 0, 262187, 13, 0, 262188, 13, 0, 262189, 13, 0, 262190, 13, 0, 262191, 13, 0, 262192, 13, 0, 262193, 13, 0, 262194, 13, 0, 262195, 12, 0, 262202, 8, 0, 262203, 13, 0, 262204, 13, 0, 262205, 13, 0, 262206, 13, 0, 262207, 13, 0, 262208, 13, 0, 262209, 13, 0, 262210, 13, 0, 262211, 13, 0, 262212, 13, 0, 262213, 13, 0, 327685, 8, 0, 327686, 13, 0, 327687, 13, 0, 327688, 13, 0, 327689, 12, 0, 327706, 8, 0, 327710, 12, 0, 327717, 8, 0, 327718, 13, 0, 327719, 13, 0, 327720, 13, 0, 327721, 13, 0, 327722, 13, 0, 327723, 13, 0, 327724, 13, 0, 327725, 13, 0, 327726, 13, 0, 327727, 13, 0, 327728, 13, 0, 327729, 13, 0, 327730, 13, 0, 327731, 2, 0, 327732, 1, 0, 327733, 10, 0, 327734, 10, 0, 327735, 10, 0, 327736, 10, 0, 327737, 0, 0, 327738, 7, 0, 327739, 13, 0, 327740, 13, 0, 327741, 13, 0, 327742, 13, 0, 327743, 13, 0, 327744, 13, 0, 327745, 13, 0, 327746, 13, 0, 327747, 13, 0, 327748, 13, 0, 327749, 13, 0, 393221, 8, 0, 393222, 13, 0, 393223, 13, 0, 393224, 13, 0, 393225, 12, 0, 393242, 8, 0, 393246, 12, 0, 393253, 8, 0, 393254, 13, 0, 393255, 13, 0, 393256, 13, 0, 393257, 13, 0, 393258, 13, 0, 393259, 13, 0, 393260, 13, 0, 393261, 13, 0, 393262, 13, 0, 393263, 13, 0, 393264, 13, 0, 393265, 13, 0, 393266, 13, 0, 393267, 13, 0, 393268, 13, 0, 393269, 13, 0, 393270, 13, 0, 393271, 13, 0, 393272, 13, 0, 393273, 13, 0, 393274, 13, 0, 393275, 13, 0, 393276, 13, 0, 393277, 13, 0, 393278, 13, 0, 393279, 13, 0, 393280, 13, 0, 393281, 13, 0, 393282, 13, 0, 393283, 13, 0, 393284, 13, 0, 393285, 13, 0, 458777, 0, 0, 458778, 7, 0, 458782, 2, 0, 458783, 1, 0, 458784, 10, 0, 458785, 10, 0, 458786, 10, 0, 458787, 10, 0, 458788, 0, 0, 458789, 7, 0, 458790, 13, 0, 458791, 13, 0, 458792, 13, 0, 458793, 13, 0, 458794, 13, 0, 458795, 13, 0, 458796, 13, 0, 458797, 13, 0, 458798, 13, 0, 458799, 13, 0, 458800, 13, 0, 458801, 13, 0, 458802, 13, 0, 458803, 13, 0, 458804, 13, 0, 458805, 13, 0, 458806, 13, 0, 458807, 13, 0, 458808, 13, 0, 458809, 13, 0, 458810, 13, 0, 458811, 13, 0, 458812, 13, 0, 458813, 13, 0, 458814, 13, 0, 458815, 13, 0, 458816, 13, 0, 458817, 13, 0, 458818, 13, 0, 458819, 13, 0, 458820, 13, 0, 458821, 13, 0 )
 
-[node name="CollectableBeer2" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 681.619, 45.8232 )
+[node name="Non-platform" type="TileMap" parent="."]
 scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer3" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 930.782, -80.1905 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer4" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 1189.97, -201.908 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer5" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 1512.16, -138.901 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer6" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 1895.93, -73.0306 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer7" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 2218.13, -216.228 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer8" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 3620.03, 260.619 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer10" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 4068.23, -123.15 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer11" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 2740.8, 47.2551 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="CollectableBeer9" parent="Collectables" instance=ExtResource( 17 )]
-position = Vector2( 2142.23, 365.153 )
-scale = Vector2( 0.5, 0.5 )
-
-[node name="Enemies" type="Node" parent="."]
-
-[node name="BoyEnemy" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 486.336, 182.788 )
-
-[node name="BoyEnemy2" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 842.823, 373.215 )
-
-[node name="BoyEnemy3" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 1356.83, 374.722 )
-
-[node name="BoyEnemy4" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 2668.21, 53.6588 )
-
-[node name="BoyEnemy5" parent="Enemies" instance=ExtResource( 18 )]
-position = Vector2( 3078.21, -75.3318 )
-
-[node name="GameOver" parent="." instance=ExtResource( 19 )]
-[connection signal="body_entered" from="Collectables/CollectableBeer" to="Collectables/CollectableBeer" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer2" to="Collectables/CollectableBeer2" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer3" to="Collectables/CollectableBeer3" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer4" to="Collectables/CollectableBeer4" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer5" to="Collectables/CollectableBeer5" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer6" to="Collectables/CollectableBeer6" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer7" to="Collectables/CollectableBeer7" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer8" to="Collectables/CollectableBeer8" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer10" to="Collectables/CollectableBeer10" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer11" to="Collectables/CollectableBeer11" method="_on_CollectableBeer_body_entered"]
-[connection signal="body_entered" from="Collectables/CollectableBeer9" to="Collectables/CollectableBeer9" method="_on_CollectableBeer_body_entered"]
+tile_set = ExtResource( 15 )
+cell_size = Vector2( 128, 128 )
+format = 1
+tile_data = PoolIntArray( -262079, 8, 0, -196543, 8, 0, -131007, 8, 0, -9, 10, 0, -8, 10, 0, -7, 10, 0, -6, 10, 0, -5, 9, 0, -65471, 8, 0, 65528, 13, 0, 65529, 13, 0, 65530, 13, 0, 65531, 12, 0, 46, 11, 0, 51, 9, 0, 65, 8, 0, 131064, 13, 0, 131065, 13, 0, 131066, 13, 0, 131067, 12, 0, 65587, 12, 0, 65601, 8, 0, 196600, 13, 0, 196601, 13, 0, 196602, 13, 0, 196603, 12, 0, 131112, 11, 0, 131123, 12, 0, 131130, 11, 0, 262136, 13, 0, 262137, 13, 0, 262138, 13, 0, 262139, 12, 0, 196648, 8, 0, 196659, 12, 0, 196666, 8, 0, 327672, 13, 0, 327673, 13, 0, 327674, 13, 0, 327675, 12, 0, 262170, 11, 0, 262174, 9, 0, 262181, 11, 0, 262195, 12, 0, 262202, 8, 0, 393208, 13, 0, 393209, 13, 0, 393210, 13, 0, 393211, 12, 0, 327706, 8, 0, 327707, 13, 0, 327708, 13, 0, 327709, 13, 0, 327710, 12, 0, 327717, 8, 0, 458744, 13, 0, 458745, 13, 0, 458746, 13, 0, 458747, 12, 0, 393242, 8, 0, 393243, 13, 0, 393244, 13, 0, 393245, 13, 0, 393246, 12, 0, 393253, 8, 0, 524280, 13, 0, 524281, 13, 0, 524282, 13, 0, 524283, 2, 0, 524284, 1, 0, 524285, 10, 0, 524286, 10, 0, 524287, 10, 0, 458752, 10, 0, 458753, 10, 0, 458754, 10, 0, 458755, 10, 0, 458756, 10, 0, 458757, 10, 0, 458758, 10, 0, 458759, 10, 0, 458760, 10, 0, 458761, 10, 0, 458762, 10, 0, 458763, 10, 0, 458764, 10, 0, 458765, 10, 0, 458766, 10, 0, 458767, 10, 0, 458768, 10, 0, 458769, 10, 0, 458770, 10, 0, 458771, 10, 0, 458772, 10, 0, 458773, 10, 0, 458774, 10, 0, 458775, 10, 0, 458776, 10, 0, 458779, 13, 0, 458780, 13, 0, 458781, 13, 0, 589817, 13, 0, 589818, 13, 0, 589819, 13, 0, 589820, 13, 0, 589821, 13, 0, 589822, 13, 0, 589823, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 13, 0, 524296, 13, 0, 524297, 13, 0, 524298, 13, 0, 524299, 13, 0, 524300, 13, 0, 524301, 13, 0, 524302, 13, 0, 524303, 13, 0, 524304, 13, 0, 524305, 13, 0, 524306, 13, 0, 524307, 13, 0, 524308, 13, 0, 524309, 13, 0, 524310, 13, 0, 524311, 13, 0, 524312, 13, 0, 524313, 13, 0, 524314, 13, 0, 524315, 13, 0, 524316, 13, 0, 524317, 13, 0, 524318, 13, 0, 524319, 13, 0 )

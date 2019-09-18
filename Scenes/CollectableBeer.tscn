@@ -97,7 +97,7 @@ __meta__ = {
 position = Vector2( -0.00744319, 0.0260506 )
 rotation = -0.206914
 frames = SubResource( 1 )
-frame = 5
+frame = 1
 playing = true
 centered = false
 
@@ -127,3 +127,4 @@ texture = ExtResource( 18 )
 [node name="jump" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 17 )
 [connection signal="area_shape_entered" from="." to="." method="_on_CollectableBeer_area_shape_entered"]
+[connection signal="body_entered" from="." to="." method="_on_CollectableBeer_body_entered"]

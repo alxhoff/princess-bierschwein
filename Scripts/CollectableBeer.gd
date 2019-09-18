@@ -9,10 +9,3 @@ func _on_CollectableBeer_body_entered( body ):
 		$anim.play("taken")
 		taken = true
 		global_var.beer_count += value
-
-func _on_coin_area_enter(area):
-	pass # replace with function body
-
-
-func _on_coin_area_enter_shape(area_id, area, area_shape, area_shape):
-	pass # replace with function body

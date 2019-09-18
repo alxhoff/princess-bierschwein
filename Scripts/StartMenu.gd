@@ -4,12 +4,10 @@ func _ready():
 	pass
 
 func _on_OptionsButton_pressed():
-	pass # Replace with function body.
-
+	get_tree().change_scene("res://Scenes/Menus/OptionsMenu.tscn")
 
 func _on_StartButton_pressed():
-	get_tree().change_scene("res://Scenes/Levels/Level1.tscn")
-
+	get_tree().change_scene("res://Scenes/World.tscn")
 
 func _on_ExitButton_pressed():
-	pass # Replace with function body.
+	get_tree().quit()
