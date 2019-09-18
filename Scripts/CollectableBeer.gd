@@ -2,7 +2,7 @@ extends Area2D
 
 var taken = false
 
-func _on_CollectableBeer_body_entered(body):
+func collected():
 	if taken == false:
 		taken = true
 		$anim.play("taken")

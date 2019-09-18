@@ -97,7 +97,7 @@ __meta__ = {
 position = Vector2( -0.00744319, 0.0260506 )
 rotation = -0.206914
 frames = SubResource( 1 )
-frame = 1
+frame = 10
 playing = true
 centered = false
 
