@@ -103,3 +103,10 @@ func _on_Timer_timeout():
 
 func _on_Lives_game_over():
 	game_over = true
+
+signal reset_lives
+signal reset_beer_count
+
+func _on_GameOver_reset_game():
+	emit_signal("reset_lives")
+	emit_signal("reset_beer_count")

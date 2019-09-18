@@ -22,7 +22,8 @@ editor/display_folded = true
 [node name="Player" parent="." instance=ExtResource( 5 )]
 
 [node name="Sprite" parent="Player" index="1"]
-frame = 3
+frame = 7
+[connection signal="reset_game" from="GameOver" to="Player" method="_on_GameOver_reset_game"]
 [connection signal="beer_count_changed" from="Player/Beers" to="ScoreUI" method="_on_Beers_beer_count_changed"]
 [connection signal="game_over" from="Player/Lives" to="GameOver" method="_on_Lives_game_over"]
 [connection signal="lives_changed" from="Player/Lives" to="ScoreUI" method="_on_Lives_lives_changed"]

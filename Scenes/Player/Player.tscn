@@ -205,7 +205,7 @@ editor_draw_drag_margin = true
 
 [node name="Sprite" parent="." instance=ExtResource( 2 )]
 frames = SubResource( 1 )
-frame = 12
+frame = 3
 
 [node name="jump" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 119 )
@@ -244,6 +244,8 @@ script = ExtResource( 122 )
 [node name="Lives" type="Node" parent="."]
 script = ExtResource( 123 )
 [connection signal="life_lost" from="." to="Lives" method="_on_Player_life_lost"]
+[connection signal="reset_beer_count" from="." to="Beers" method="_on_Player_reset_beer_count"]
+[connection signal="reset_lives" from="." to="Lives" method="_on_Player_reset_lives"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 [connection signal="area_entered" from="BeerCollector" to="BeerCollector" method="_on_BeerCollector_area_entered"]
 [connection signal="beer_collected" from="BeerCollector" to="Beers" method="_on_BeerCollector_beer_collected"]

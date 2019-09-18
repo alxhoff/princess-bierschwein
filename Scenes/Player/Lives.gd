@@ -14,3 +14,8 @@ func _on_Player_life_lost():
 	if lives == 0:
 		emit_signal("game_over")
 	emit_signal("lives_changed", lives)
+
+
+func _on_Player_reset_lives():
+	lives = 3
+	emit_signal("lives_changed", lives)
