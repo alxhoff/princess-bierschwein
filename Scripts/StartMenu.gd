@@ -2,6 +2,7 @@ extends Node
 
 func _ready():
 	pass
+	
 
 func _on_OptionsButton_pressed():
 	get_tree().change_scene("res://Scenes/Menus/OptionsMenu.tscn")

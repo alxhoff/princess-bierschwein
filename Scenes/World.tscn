@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/ScoreUI.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/ScoreUI.tscn" type="PackedScene" id=5]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -12,13 +12,11 @@ __meta__ = {
 "_edit_vertical_guides_": [ -447.276 ]
 }
 
-[node name="UI" type="Node" parent="."]
-
-[node name="ScoreUI" parent="UI" instance=ExtResource( 2 )]
-
-[node name="Player" parent="." instance=ExtResource( 3 )]
+[node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, 380 )
 
-[node name="GameOver" parent="." instance=ExtResource( 4 )]
+[node name="GameOver" parent="." instance=ExtResource( 3 )]
 
-[node name="Level" parent="." instance=ExtResource( 5 )]
+[node name="Level" parent="." instance=ExtResource( 4 )]
+
+[node name="ScoreUI" parent="." instance=ExtResource( 5 )]

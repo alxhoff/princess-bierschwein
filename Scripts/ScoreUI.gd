@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 onready var score_label = $top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer/BeerCountLabel
+onready var progress_bar = $top_ui/MarginContainer/HBoxContainer/MarginProgress/ProgressVBox/MarginContainer2/ProgressBar
 
 onready var life1 = $top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/Margin1/Sprite1
 onready var life2 = $top_ui/MarginContainer/HBoxContainer/MarginLives/LivesHBox/Margin2/Sprite2
@@ -27,3 +28,6 @@ func _process(delta):
 	if !score_label:
 		score_label = $top_ui/MarginContainer/HBoxContainer/MarginBeerCount/BeerCountHBox/MarginContainer/BeerCountLabel
 	score_label.text = String(global_var.beer_count)
+	#print(get_parent().find_node("Level").name)
+	progress_bar.set_progress_texture(get_parent().find_node("Level").get_progress())
+
