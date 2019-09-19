@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/Levels/Level1.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/GameOver.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/ScoreUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/ScoreUI.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/CurrentLevel.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Levels/Level1.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Overlays/StaticOverlays.tscn" type="PackedScene" id=6]
 
 [node name="World" type="Node"]
 script = ExtResource( 1 )
@@ -12,23 +13,30 @@ __meta__ = {
 "_edit_vertical_guides_": [ -447.276 ]
 }
 
-[node name="GameOver" parent="." instance=ExtResource( 2 )]
-
-[node name="Level" parent="." instance=ExtResource( 3 )]
+[node name="ScoreUI" parent="." instance=ExtResource( 2 )]
 editor/display_folded = true
 
-[node name="ScoreUI" parent="." instance=ExtResource( 4 )]
-
-[node name="Player" parent="." instance=ExtResource( 5 )]
+[node name="Player" parent="." instance=ExtResource( 3 )]
 
 [node name="Sprite" parent="Player" index="1"]
-frame = 13
-[connection signal="reset_game" from="GameOver" to="Player" method="_on_GameOver_reset_game"]
-[connection signal="beer_count_changed" from="Player/Beers" to="ScoreUI" method="_on_Beers_beer_count_changed"]
-[connection signal="game_over" from="Player/Lives" to="GameOver" method="_on_Lives_game_over"]
-[connection signal="lives_changed" from="Player/Lives" to="ScoreUI" method="_on_Lives_lives_changed"]
+frame = 5
 
-[editable path="Level"]
+[node name="jump" parent="Player" index="2"]
+volume_db = -80.0
+
+[node name="CurrentLevel" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Level" parent="CurrentLevel" instance=ExtResource( 5 )]
+editor/display_folded = true
+
+[node name="StaticOverlays" parent="." instance=ExtResource( 6 )]
+[connection signal="beer_count_changed" from="Player/Beers" to="ScoreUI" method="_on_Beers_beer_count_changed"]
+[connection signal="beer_count_changed" from="Player/Beers" to="CurrentLevel" method="_on_Beers_beer_count_changed"]
+[connection signal="game_over" from="Player/Lives" to="StaticOverlays" method="_on_Lives_game_over"]
+[connection signal="lives_changed" from="Player/Lives" to="ScoreUI" method="_on_Lives_lives_changed"]
+[connection signal="progress_changed" from="CurrentLevel" to="ScoreUI" method="_on_CurrentLevel_progress_changed"]
+[connection signal="progress_completed" from="CurrentLevel" to="StaticOverlays" method="_on_CurrentLevel_progress_completed"]
 
 [editable path="ScoreUI"]
 
