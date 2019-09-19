@@ -16,17 +16,15 @@ rect_min_size = Vector2( 300, 0 )
 size_flags_stretch_ratio = 3.0
 custom_constants/separation = 0
 
-[node name="MarginContainer" type="MarginContainer" parent="ProgressVBox"]
-editor/display_folded = true
+[node name="MarginBeerCount" type="MarginContainer" parent="ProgressVBox"]
 margin_right = 300.0
 margin_bottom = 76.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="ProgressVBox/MarginContainer"]
-editor/display_folded = true
+[node name="HBoxContainer" type="HBoxContainer" parent="ProgressVBox/MarginBeerCount"]
 margin_right = 300.0
 margin_bottom = 76.0
 
-[node name="BeerCurrent" type="Label" parent="ProgressVBox/MarginContainer/HBoxContainer"]
+[node name="BeerCurrent" type="Label" parent="ProgressVBox/MarginBeerCount/HBoxContainer"]
 margin_right = 97.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
@@ -35,7 +33,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "00"
 align = 1
 
-[node name="ProgressPercentageLabel2" type="Label" parent="ProgressVBox/MarginContainer/HBoxContainer"]
+[node name="ProgressPercentageLabel2" type="Label" parent="ProgressVBox/MarginBeerCount/HBoxContainer"]
 margin_left = 101.0
 margin_right = 198.0
 margin_bottom = 76.0
@@ -45,7 +43,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "/"
 align = 1
 
-[node name="BeerTotal" type="Label" parent="ProgressVBox/MarginContainer/HBoxContainer"]
+[node name="BeerTotal" type="Label" parent="ProgressVBox/MarginBeerCount/HBoxContainer"]
 margin_left = 202.0
 margin_right = 300.0
 margin_bottom = 76.0
@@ -55,7 +53,7 @@ custom_fonts/font = ExtResource( 1 )
 text = "00"
 align = 1
 
-[node name="MarginContainer2" type="MarginContainer" parent="ProgressVBox"]
+[node name="MarginProgressBar" type="MarginContainer" parent="ProgressVBox"]
 margin_top = 76.0
 margin_right = 300.0
 margin_bottom = 106.0
@@ -63,7 +61,7 @@ custom_constants/margin_right = 10
 custom_constants/margin_left = 0
 custom_constants/margin_bottom = -5
 
-[node name="ProgressBar" type="TextureProgress" parent="ProgressVBox/MarginContainer2"]
+[node name="ProgressBar" type="TextureProgress" parent="ProgressVBox/MarginProgressBar"]
 margin_right = 290.0
 margin_bottom = 35.0
 rect_min_size = Vector2( 260, 35 )
