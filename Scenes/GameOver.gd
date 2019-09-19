@@ -21,3 +21,7 @@ func _on_QuitButton_pressed():
 
 func _on_Lives_game_over():
 		set_visible(true)
+
+
+func _on_StaticOverlays_show_game_over(state):
+	set_visible(state)
