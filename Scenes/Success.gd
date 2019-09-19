@@ -1,16 +1,19 @@
 extends CanvasLayer
 
+signal next_level
+
 func _ready():
 	set_visible(false)
 	pass
 
-
 func _on_ContinueButton_pressed():
-	pass # Replace with function body.
+	set_visible(false)
+	emit_signal("next_level")
 
 
 func _on_ExitButton_pressed():
-	pass # Replace with function body.
+	set_visible(false)
+	get_tree().change_scene("res://Scenes/Menus/StartMenu.tscn")
 
 func set_visible(enable):
 	$VBoxContainer/Label.visible = enable
